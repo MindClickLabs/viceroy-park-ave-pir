@@ -1145,7 +1145,7 @@ document.querySelectorAll('.pcard').forEach(c=>{
   document.querySelectorAll('.statcard .cmpl').forEach(function(el){var k=el.dataset.k,a=avg('o',k);el.innerHTML='Comparable average '+a.val+'% · '+delta(C.self.o[k],a.val,true);});
   // comparison table
   var ROWS=[['spend','% Rated Spend',true],['area','% Rated Surface Area',true],['prod','% Rated Products',true],['score','Overall Score',false]];
-  var SPN={o:'the whole project (Model Room excluded)',g:'guestrooms &amp; corridors',p:'public space'};
+  var SPN={o:'the whole project',g:'guestrooms &amp; corridors',p:'public space'};
   function table(v){
     var ps=C.order.filter(function(p){return C.stats[p][v];});
     var h='<thead><tr><th>Measure</th><th class="me">Viceroy Park Avenue</th>'+ps.map(function(p){return '<th>'+C.names[p]+'</th>';}).join('')+'<th>Comparable average</th><th>Vs. average</th></tr></thead><tbody>';
