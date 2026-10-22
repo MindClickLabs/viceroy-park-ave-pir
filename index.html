@@ -424,14 +424,6 @@ Rev. 1 — 2026-09-16: initial publication.
       <div class="statcard"><div class="big">24%</div><div class="lbl">of Vendors are rated</div><div class="det">31 of 131 vendors</div><div class="cmpl" data-k="sup"></div></div>
     </div>
 
-    <details class="cmpbox" open>
-      <summary><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg><span><b>How Viceroy compares with other New York properties</b><span class="cmpsub">% rated spend, surface area and products, and overall score vs. the comparable average</span></span></summary>
-      <div class="cmptog" role="group" aria-label="Compare by space">
-        <button type="button" data-v="o" class="on" aria-pressed="true">Overall</button><button type="button" data-v="g" aria-pressed="false">Guestrooms</button><button type="button" data-v="p" aria-pressed="false">Public Space</button>
-      </div>
-      <div class="tblwrap"><table class="cmptbl" id="cmptbl"></table></div>
-      <p class="cmpnote" id="cmpnote"></p>
-    </details>
     <div class="keyfind"><strong>What this view says:</strong>
       <div style="margin-top:8px;">Three-quarters of dollars and nearly all surface area is from rated products.</div>
       <div style="margin-top:6px;">Coverage rests on a few vendors: the top 5 = 62% of rated spend and 54% of rated surface area.</div>
@@ -450,6 +442,14 @@ Rev. 1 — 2026-09-16: initial publication.
       </div>
     </div>
 
+    <details class="cmpbox">
+      <summary><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg><span><b>How Viceroy compares with other New York properties</b><span class="cmpsub">% rated spend, surface area and products, and overall score vs. the comparable average</span></span></summary>
+      <div class="cmptog" role="group" aria-label="Compare by space">
+        <button type="button" data-v="o" class="on" aria-pressed="true">Overall</button><button type="button" data-v="g" aria-pressed="false">Guestrooms</button><button type="button" data-v="p" aria-pressed="false">Public Space</button>
+      </div>
+      <div class="tblwrap"><table class="cmptbl" id="cmptbl"></table></div>
+      <p class="cmpnote" id="cmpnote"></p>
+    </details>
     <h3 class="grp">Metrics at a glance</h3>
     <div class="mpanel">
       <div class="mp-grid">
@@ -1145,7 +1145,7 @@ document.querySelectorAll('.pcard').forEach(c=>{
   document.querySelectorAll('.statcard .cmpl').forEach(function(el){var k=el.dataset.k,a=avg('o',k);el.innerHTML='Comparable average '+a.val+'% · '+delta(C.self.o[k],a.val,true);});
   // comparison table
   var ROWS=[['spend','% Rated Spend',true],['area','% Rated Surface Area',true],['prod','% Rated Products',true],['score','Overall Score',false]];
-  var SPN={o:'the whole project (Model Room excluded)',g:'guestrooms &amp; corridors',p:'public space'};
+  var SPN={o:'the whole project',g:'guestrooms &amp; corridors',p:'public space'};
   function table(v){
     var ps=C.order.filter(function(p){return C.stats[p][v];});
     var h='<thead><tr><th>Measure</th><th class="me">Viceroy Park Avenue</th>'+ps.map(function(p){return '<th>'+C.names[p]+'</th>';}).join('')+'<th>Comparable average</th><th>Vs. average</th></tr></thead><tbody>';
